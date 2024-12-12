@@ -180,6 +180,7 @@ def upload_file():
 			uuid = upload_to_peertube(content, filename)
 			# http://peertube.localhost:9000/videos/embed/536c613d-fc2e-41c5-bce5-8db437cfe2e6
 			file_url = "http://peertube.localhost:9000/videos/embed/"
+			# file_url = "http://legion.tailaadcc.ts.net:9000/videos/embed/"
 			file_url += uuid
 			# file_url += "?"
 			# file_url += "controls=1"

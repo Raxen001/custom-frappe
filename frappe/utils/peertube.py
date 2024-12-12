@@ -2,9 +2,11 @@ import time
 import requests
 import os
 
-def upload_to_peertube(file_content, vid_name):
+url = 'http://peertube.localhost:9000'
+# url = 'http://legion.tailaadcc.ts.net:9000/'
 
-    api_url = 'http://peertube.localhost:9000/api/v1'
+def upload_to_peertube(file_content, vid_name):
+    api_url = url + '/api/v1'
     api_user = 'root'
     api_pass = 'root@123'
     response = requests.get(api_url + '/oauth-clients/local')
@@ -36,7 +38,8 @@ def upload_to_peertube(file_content, vid_name):
         'privacy': '1',
 
     }
-    response = requests.post('http://peertube.localhost:9000/api/v1/videos/upload', headers=headers, files=files, data=data)
+    send_url = url + "/api/v1/videos/upload"
+    response = requests.post(send_url, headers=headers, files=files, data=data)
     data = response.json()
     uuid = data['video']['uuid']
     return uuid
